@@ -104,6 +104,9 @@ document.addEventListener('DOMContentLoaded', function() {
             // Add to the board
             bingoBoard.appendChild(tile);
         }
+        
+        // Calculate and apply optimal tile sizes after all tiles are added
+        calculateOptimalTileSize();
     }
     
     // Handle tile click
@@ -167,6 +170,47 @@ document.addEventListener('DOMContentLoaded', function() {
             refreshBoard();
         } else {
             console.error('Invalid board data. Must be a flat array of 25 items or a 5x5 2D array.');
+        }
+    }
+    
+    // Calculate optimal tile size based on text content
+    function calculateOptimalTileSize() {
+        // Get all tiles
+        const tiles = document.querySelectorAll('.bingo-tile');
+        
+        // Find the tile with the longest text
+        let maxLength = 0;
+        let longestTextTile = null;
+        
+        tiles.forEach(tile => {
+            const textLength = tile.textContent.length;
+            if (textLength > maxLength) {
+                maxLength = textLength;
+                longestTextTile = tile;
+            }
+        });
+        
+        // Base font size adjustment on text length
+        if (maxLength > 0) {
+            // Get the current board width
+            const boardWidth = bingoBoard.offsetWidth;
+            const tileBaseWidth = (boardWidth - (4 * 15)) / 5; // 5 tiles with 4 gaps of 15px
+            
+            // Calculate font size based on text length
+            let fontSize = 1; // Default 1rem
+            
+            if (maxLength > 40) {
+                fontSize = 0.7; // Very long text
+            } else if (maxLength > 30) {
+                fontSize = 0.8; // Long text
+            } else if (maxLength > 20) {
+                fontSize = 0.9; // Medium text
+            }
+            
+            // Apply the calculated font size to all tiles
+            tiles.forEach(tile => {
+                tile.style.fontSize = `${fontSize}rem`;
+            });
         }
     }
     
@@ -258,6 +302,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // Save the new state
         saveState();
         refreshBoard();
+        
+        // Recalculate tile sizes when window is resized
+        window.addEventListener('resize', calculateOptimalTileSize);
     }
     
     // Try to load saved state
