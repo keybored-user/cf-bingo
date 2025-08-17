@@ -1,0 +1,163 @@
+/* Presenter Mode Styles */
+
+.presenter-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1000px;
+}
+
+.navigation-links {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.nav-link {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: #2980b9;
+}
+
+.presenter-controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 30px 0;
+    width: 100%;
+}
+
+.bottom-controls {
+    margin-top: 40px;
+}
+
+.presenter-btn {
+    padding: 12px 24px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.presenter-btn:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+.presenter-btn:active {
+    transform: translateY(0);
+}
+
+#reset-items-btn {
+    background-color: #e74c3c;
+}
+
+#reset-items-btn:hover {
+    background-color: #c0392b;
+}
+
+.presenter-display {
+    width: 100%;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.presenter-item {
+    background-color: white;
+    border: 3px solid #3498db;
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s ease;
+}
+
+.presenter-item.animate {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.start-message {
+    color: #7f8c8d;
+    font-size: 1.5rem;
+}
+
+/* Counter styles */
+.counter-container {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #2c3e50;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#shown-counter, #total-counter {
+    display: inline-block;
+    min-width: 25px;
+    color: #3498db;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .presenter-item {
+        font-size: 1.8rem;
+        padding: 20px;
+    }
+    
+    .presenter-controls {
+        flex-direction: column;
+    }
+    
+    .presenter-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .presenter-item {
+        font-size: 1.5rem;
+        padding: 15px;
+    }
+    
+    .presenter-display {
+        height: 300px;
+    }
+}

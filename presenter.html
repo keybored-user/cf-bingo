@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consumer Finance Bingo - Presenter Mode</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="presenter.css">
+</head>
+<body>
+    <div class="container presenter-container">
+        <h1>Consumer Finance Bingo - Presenter Mode</h1>
+        
+        <div class="counter-container">
+            <span>Items Shown: </span>
+            <span id="shown-counter">0</span>/<span id="total-counter">0</span>
+        </div>
+        
+        <div class="presenter-display" id="presenter-display">
+            <div class="presenter-item" id="presenter-item">
+                <!-- Item will be displayed here -->
+                <p class="start-message">Click "Next Item" to begin</p>
+            </div>
+        </div>
+        
+        <div class="presenter-controls bottom-controls">
+            <button id="next-item-btn" class="presenter-btn">Next Item</button>
+            <button id="reset-items-btn" class="presenter-btn">Reset All Items</button>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+    <script src="presenter.js"></script>
+</body>
+</html>
